@@ -16,12 +16,13 @@ function getValues(){
 //Logic function
 function evaluateFizzBuzz(firstNum, secondNum){
     let info = [];
-    for(let i = firstNum; i < secondNum; i++){
-        if(i % 3 === 0 && i % 5 === 0){
+ 
+    for(let i = 1; i <= 100; i++){
+        if(i % firstNum === 0 && i %secondNum === 0){
             info.push('FizzBuzz')
-        }else if(i % 3 === 0){
+        }else if(i % firstNum === 0){
             info.push('Fizz')
-        }else if(i % 5 === 0){
+        }else if(i % secondNum === 0){
             info.push('Buzz')
         }else{
             info.push(i)
@@ -29,6 +30,55 @@ function evaluateFizzBuzz(firstNum, secondNum){
     }
     return info;
 }
+
+// function evaluateFizzBuzzA(firstNum, secondNum){ //A different way to solve the fizzBuzz algorithm
+//     let info = [];
+
+//     let fizz = false;
+//     let buzz = false;
+
+//     for(let i = 1; i <= 100; i++){
+//         fizz = i % firstNum === 0; //This will evaluate to true or false, it checks to see if i divided by firstNum has remainder of 0, if it does return true otherwise false
+//         buzz = i % secondNum === 0 //This will evaluate to true or false, it checks to see if i divided by secondNum has remainder of 0, if it does return true otherwise false.
+
+//         //Using a switch statement with a parameter of true to add infromation to the array/
+//        switch(true){
+//            case fizz && buzz:{ //If fizz and buzz both evalyuate to true wer willpush fizzBuzz to array
+//                 info.push('FizzBuzz')
+//                 break;
+//            }
+//            case fizz:{ //if fizz is true and buzz is false then we will only push Fizz to array
+//                info.push('Fizz');
+//                break;
+//            }
+//            case buzz:{ //If buzz is true and fizz is false then we will only push Buzz to array
+//                info.push('Buzz')
+//                break;
+//            }
+//            default:{ //If neither fizz nor buzz is true then I will just poush i to the array by default.
+//                info.push(i)
+//                break;
+//            }
+//        }
+//     }
+//     return info;
+// }
+
+// function evaluateFizzBuzzB(firstNum, secondNum){
+//     let info = [];
+
+//     for(let i = 1; i <= 100; i++){
+//         //Using ternary operators.
+//         //What the question mark allows us to do is say, if this is true then do this, and if it is false then do this. A colon is representative of else 
+//             //Example: looking at i%firstNum === 0 ? 'Fizz' : ''. This is saying that if i divided by firstNum and if the remainder is 0 return 'Fizz' and the colon represents else. So if i dvided by firstNum does not haver a remainder of 0 it will reutrn an empty string,
+//             //An empty string evaluates to false
+//             //Any number evaluates to true.
+//             let value = ((i%firstNum === 0 ? 'Fizz' : '' ) + (i % secondNum === 0 ? 'Buzz' : '') || i)
+//             info.push(value)
+//     }
+
+//     return info;
+// }
 
 function display(data){
     let tableBody = document.getElementById('results') //get the body for the table
@@ -55,9 +105,6 @@ function display(data){
         rowCols[4].textContent = data[i + 4]
 
         //add all of the rows to the table
-        tableBody.appendChild(tableRow)
-
-
-         
+        tableBody.appendChild(tableRow)         
     }   
 }

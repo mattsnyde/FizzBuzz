@@ -58,17 +58,77 @@
                 <div class="col-lg-8">
                     <pre class="line-numbers"> <!--line-numbers will put an increasing number for each line there is.-->
                         <code class="language-javascript">
-                            function helloWorld(){  
-                                alert("hello world")
+                             function getValues(){
+                                const firstNum = document.getElementById('firstNumber').value 
+                                const secondNum = document.getElementById('secondNumber').value;
+                            
+                                parseInt(firstNum)
+                                parseInt(secondNum)
+                                    
+                                evaluateFizzBuzz(firstNum, secondNum)
+                            
+                                let data = evaluateFizzBuzz(firstNum, secondNum)
+                                display(data)
+                             
+                            }
+                            
+                            function evaluateFizzBuzz(firstNum, secondNum){
+                                let info = [];
+ 
+                                for(let i = 1; i <= 100; i++){
+                                    if(i % firstNum === 0 && i %secondNum === 0){
+                                        info.push('FizzBuzz')
+                                    }else if(i % firstNum === 0){
+                                        info.push('Fizz')
+                                    }else if(i % secondNum === 0){
+                                        info.push('Buzz')
+                                    }else{
+                                        info.push(i)
+                                    }
+                                }
+                                return info;
+                            }
+                            
+                            function display(data){
+                                let tableBody = document.getElementById('results');
+                                let templateRow = document.getElementById('fbTemplate')  
+                                tableBody.innerHTML = ''; //clears table
+                                for(let i = 0; i < data.length; i+=5){
+                                    let tableRow = document.importNode(templateRow.content, true) 
+                                    let rowCols = tableRow.querySelectorAll('td')
+                            
+                                    rowCols[0].classList.add(data[i])
+                                    rowCols[0].textContent = data[i]
+                            
+                                    rowCols[1].classList.add(data[i + 1])
+                                    rowCols[1].textContent = data[i + 1]
+                            
+                                    rowCols[2].classList.add(data[i + 2])
+                                    rowCols[2].textContent = data[i + 2]
+                            
+                                    rowCols[3].classList.add(data[i + 3])
+                                    rowCols[3].textContent = data[i + 3]
+                                    
+                                    rowCols[4].classList.add(data[i + 4])
+                                    rowCols[4].textContent = data[i + 4]
+                            
+                                    //add all of the rows to the table
+                                    tableBody.appendChild(tableRow)         
+                                }   
                             }
                         </code>
                     </pre>
                 </div>
                 <!--second column is description of the code-->
                 <div class="col-lg-4">
-                    <p>The code is structured in one function</p>
-                    <h5>Hello World</h5>
-                    <p>helloWorld is a function that displays an alert with a message of "Hello World"</p>
+                     <h5 class='custom-title border-bottom border-2 border-light'>getValues()</h5>
+                    <p class='lead'>The getValues() function acts as the controller function in which it calls all other functions. It gets the users input from the input fields, parse it as an integer and then passes it as arguements to other functions in the program.</p>
+                    <br>
+                    <h5 class="custom-title border-bottom border-2 border-light">evaluateFizzBuzz()</h5>
+                    <p class="lead">The evaluateFizzBuzz function has two parameters which are representing the 2 numbers inputted by the user. Inside of the function i initialize an empty array and us a for loop to iterate through the numbers between 1 and 100. If the number is divisible by 3 and 5 and has a remainder of 0 then I push FizzBuzz to the array, if the number is only divisible by 3 and has a remainder of 0 then I push Fizz to the array, if the number is only divisible by 5 and has a remainder of 0 i push Buzz to the array, and for all other cases i just push the current number to the array.</p>
+                    <br>
+                    <h5 class="custom-title border-bottom border-2 border-light">display()</h5>
+                    <p class="lead">The display function has a paramter of data which represents the array with all of the information. Inside of the display function I am accessing the table body as well as the template I made for the table. I use a for loop to iterate through the the array and increase by 5 for each iteration which is important when using the HTML template I made. Inside of the for loop I am accessing the template I made and also accessing all of the cells inside of that table. To populate the cells I access the rowCols which is an array of HTML td elements and usng .textContent I am able to assign the cell the information from the array. Since their are 5 td elements the rowCols array has a length of 5 so I repeat this process 4 times and when assigning textContent to the td element I need to increase i by 1 for each td element I iterate through. Finally I append the tableRow to the tableBody. </p>
                 </div>
             </div>
         </div>
