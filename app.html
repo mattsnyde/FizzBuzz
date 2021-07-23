@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Matthew Snyder</title>
+    <title>FizzBuzz: A Coding Project By Matthew Snyder</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,13 +13,16 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script> <!--font-awesome-->
     <link rel="icon" type="img/png" href="img/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
  </head>
 
 <body class="d-flex flex-column h-100"> <!--Column will fill up height of browser-->
 <!--Nav Area -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top"> <!--Expand all of the links for medium screens and above, and hamburger icon for screens less than medium breakpont. dark background, fixed to to top-->
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img/E.svg" alt="Matthew Snyder Mark" class="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+            <a class="navbar-brand" href="#"><img src="img/E.svg" alt="Matthew Snyder Mark" class="d-inline-block align-text-top" width="30" height="24">FizzBuzz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,7 +50,51 @@
     </nav>
     <!--Main-->
     <main class="flex-shrink-0">
-        <div class="container"></div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 gx-3">
+                <div class="col border-end">
+                    <h5 class="display-3 mt-4 fw-bold lh-1">FizzBuzz: A coding project</h5>
+                    <h4 class="lead">When it counts you Fizz Buzz. A javascript coding exercvise using loops. Write a program that prints numbers from  to 100 and for multiples of '3' display 'Fizz' ionstead of the number and for multiples of '5' display 'Buzz'. If a multiple of both display 'FizzBuzz'.</h4>
+                    <br>
+                    <h2 class="display-5 fw-bold lh-1">Instructions</h5>
+                    <p class="fw-bold">Enter a fizz and a buzz value. Press the button and the value wills appear</p>
+                </div>
+                <div class="col mt-4">
+                    <div>
+                        <h5>Enter Values</h5>
+                        <form action="" class="row gx-3">
+                            <div class="col-12">
+                            </div>
+                           <div class="col">
+                               <input class="form-control" type="number" id="firstNumber" placeholder = "0" value = "0" aria-label="Enter first value">
+                           </div>
+                           <div class="col">                       
+                                <input type="number" class="form-control" id="secondNumber" placeholder="100" value="100" aria-label="Enter second value">
+                           </div>
+                           <div class="col-12">
+                               <button type="button" id="btn-submit" class="btn btn-dark btn-md mt-3">Buzz it</button>
+                           </div>
+                        </form>
+                        <h2 class="mt-5">Results</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-seconday text-dark table-sm">
+                                <tbody id="results">
+                                    <thead>
+                                        <tr>
+                                            <th scope='col'></th>
+                                            <th scope='col'></th>
+                                            <th scope='col'></th>
+                                            <th scope='col'></th>
+                                            <th scope='col'></th>
+                                        </tr>
+                                    </thead>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <!--Footer Section-->
     <footer class="footer mt-auto py-3">
@@ -69,6 +116,17 @@
             </div>
          </div>
     </footer>
+
+    <template id='fbTemplate'>
+        <tr>
+            <td></td> <!--index 0-->
+            <td></td> <!--index 1-->
+            <td></td> <!-- index 2-->
+            <td></td> <!--index 3-->
+            <td></td> <!--index 4-->
+        </tr>
+    </template>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
@@ -76,5 +134,10 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
     <script src="js/site.js"></script>
+    <script>
+        document.getElementById('btn-submit').addEventListener('click', function(){
+            getValues()
+        })
+    </script>
 </body>
 </html>

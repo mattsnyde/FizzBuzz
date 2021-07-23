@@ -5,6 +5,10 @@
     --white-color: #e7e7e7;
 }
 
+.navbar-brand, .custom-title{
+    font-family: 'Stylish', sans-serif;
+}
+
 body{
     color: var(--dark-color);
 }
@@ -58,6 +62,19 @@ footer .social>a:hover{
 
 .checklist>li i{ /*Anything styled with a checklist inside of an li look for an icon and change icon color*/
     color: var(--secondary-color)
+}
+
+.Fizz{
+    color: rgb(248, 104, 8);
+}
+
+.Buzz{
+ color: rgb(0, 255,0)
+}
+
+.FizzBuzz{
+ color: rgb(5, 184, 255);
+ font-style: italic;
 }
 
 code[class*="language-"], /*Set up code tag css */
